@@ -11,7 +11,8 @@
 //
 // Now includes two relays for driving remote socket switch on via Byron controller
 //
-// 1/10/2014 - Removed Bargraph and CT Code. Added "meterTest" section to test if Grid Meter LED is really on. It does this by checking if it stays on for > meterLEDOnTime 
+// 1/10/2014 - Removed Bargraph and CT Code. Added "meterTest" section to test if Grid Meter LED is really on. It does this by checking if it stays on for > meterLEDOnTime
+// test change
 //
 const int meterLEDPin = 30; //Digital pin used to monitor Grid Meter LED pulses
 const int PWMOutPin = 12; //Immersion heater controller output (PWM)
