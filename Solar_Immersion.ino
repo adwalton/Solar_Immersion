@@ -23,8 +23,8 @@ const int amberLEDPin = 53; //Amber LED (mid power)
 const int greenLEDPin = 52; //Green LED (hign power)
 const int PWMIncrement = 1; //Amount to increment PWM setting by when exporting
 const int PWMDecrement = 2; //Amount to decrement PWM setting by when importing
-const int loopTime = 10; //Duration of meter test loop() in ms
-const int stepTime = 5000; //Duration of time between incremental PWM adjustments
+//const int loopTime = 10; //Duration of meter test loop() in ms
+const int stepTime = 15000; //Duration of time between incremental PWM adjustments
 const int maxPWMOut = 255; //Used to scale PWM output - set to just over 90% of Arduino range (90% is supposed to give Kemo full ON
 const int minPWMOut = 44; //Used to set minimum PWM level - Kemo OFF at less than 10% mark-space ratio
 const int minPWMOn = 82; //PWM value that represents lowest point where power actually starts going to immersion heater (minPWMOut is set at a level to ensure heater is definitely OFF when it should be)
@@ -109,7 +109,8 @@ void loop()
       }
       else
       {
-        PWMOut = PWMOut - (((PWMOut - minPWMOut)/ PWMDecrementFactor)+1); // Decrement rate, based on linear distance above zero power
+          PWMOut = PWMOut - PWMDecrement;
+//        PWMOut = PWMOut - (((PWMOut - minPWMOut)/ PWMDecrementFactor)+1); // Decrement rate, based on linear distance above zero power
       }
     }
   analogWrite(PWMOutPin, PWMOut); //write PWM signal to mains controller
